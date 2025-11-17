@@ -16,8 +16,19 @@ body {
 }
 
 h1 {
-  margin-top: 0;
-  font-size: 1.6rem;
+  margin: 0;
+  font-size: 1.8rem;
+  text-align: center;
+  color: #1f3c88;
+  letter-spacing: 0.5px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #e1e8ff;
+}
+
+p {
+  text-align: center;
+  margin: 12px 0 0;
+  color: #4a4a4a;
 }
 
 .contact-form {
@@ -29,6 +40,7 @@ h1 {
 
 .contact-form label {
   font-weight: bold;
+  color: #1f3c88;
 }
 
 .contact-form input,
@@ -37,6 +49,16 @@ h1 {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+  background: #fafafa;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #2a7ade;
+  box-shadow: 0 0 0 3px rgba(42, 122, 222, 0.15);
+  background: #fff;
 }
 
 .contact-form button {
@@ -47,8 +69,33 @@ h1 {
   color: #fff;
   font-size: 1rem;
   cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
 }
 
 .contact-form button:hover {
   background: #1d5ea8;
+  transform: translateY(-1px);
+}
+
+.contact-form button:focus {
+  outline: 2px solid #1d5ea8;
+  outline-offset: 2px;
+}
+
+.container ul {
+  list-style: none;
+  margin: 28px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.container ul li {
+  background: #f0f6ff;
+  border: 1px solid #d6e4ff;
+  border-radius: 6px;
+  padding: 10px 12px;
+  color: #1f3c88;
+  font-size: 0.95rem;
 }
