@@ -90,7 +90,6 @@ git init
 
 ---
 
-### فلسفه‌ی کامیت‌های اتمی
 ## ۲. منظور از atomic بودن در atomic commit و atomic pull-request چیست؟
 
 * Atomic Commit: کامیتی که فقط شامل یک «تغییر منطقی واحد» است (مثلاً فقط یک باگ‌فیکس یا یک فیچر کوچک).
@@ -103,7 +102,6 @@ git init
 
 ---
 
-### تفاوت `git fetch` و `git pull`
 ## ۳. تفاوت دستورهای fetch و pull و merge و rebase و cherry-pick
 
 ### git fetch
@@ -132,7 +130,6 @@ history را بازنویسی می‌کند، پس روی برنچ‌های مش
 
 ---
 
-### فست‌فوروارد در برابر مرج واقعی
 ## ۴. تفاوت دستورهای reset و revert و restore و switch و checkout
 
 ### git reset
@@ -169,4 +166,22 @@ HEAD و گاهی staging و working directory را به یک commit قبلی ب�
 
 ---
 
-### مراحل رفع تعارض‌های مرج
+
+## ۵. منظور از stage یا index چیست؟ دستور stash چه کاری انجام می‌دهد؟
+
+### Stage / Index
+
+منطقه‌ی میانی بین working directory و commit.
+با git add تغییرات وارد stage می‌شوند و commit دقیقاً از روی stage ساخته می‌شود.
+مزیت: امکان commit کردن بخشی از تغییرات و نگه داشتن بقیه.
+
+### git stash
+
+تغییرات جاری (در working directory و stage) را موقتاً ذخیره کرده و محیط را تمیز می‌کند.
+کاربرد:
+
+* وقتی وسط یک کار هستیم اما لازم است سریع به برنچ دیگری برویم.
+* بعداً با git stash pop یا apply می‌توان تغییرات را برگرداند.
+
+---
+
