@@ -61,7 +61,11 @@
 - Workflow در مسیر `.github/workflows/deploy.yml` با عنوان «Deploy static site to GitHub Pages» قرار دارد.
 - با هر `push` روی `main` اجرا می‌شود و دسترسی‌های `contents: read`, `pages: write`, `id-token: write` را تنظیم می‌کند.
 - مراحل: checkout ریپو، پیکربندی محیط Pages (`actions/configure-pages@v5`)، آپلود artifact کل سایت (`actions/upload-pages-artifact@v3`) و در نهایت دیپلوی با `actions/deploy-pages@v4`.
-- نشانی انتشار را پس از فعال‌شدن Pages به شکل `https://<username>.github.io/<repo-name>/` تکمیل کنید.
+- نشانی انتشار را پس از فعال‌شدن Pages به شکل 
+https://saamthesoldier.github.io/se-lab-01-static-front/
+
+## Kanban
+- kanban board link: https://github.com/users/saamTheSoldier/projects/2/views/1?system_template=kanban
 
 ## سوالات نظری گیت
 ### ۱. پوشه‌ی `.git` چیست و چه اطلاعاتی در آن نگه‌داری می‌شود؟
