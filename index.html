@@ -18,7 +18,22 @@
         <input type="email" id="email" name="email" placeholder="sample@example.com">
 
         <label for="message">پیام</label>
-        <textarea id="message" name="message" rows="4" placeholder="پیامتان را بنویسید"></textarea>
+        <div class="message-container">
+            <textarea id="message" name="message" rows="4" placeholder="پیامتان را بنویسید"></textarea>
+            <div class="emoji-picker-container">
+                <button type="button" class="emoji-toggle">😊</button>
+                <div class="emoji-picker">
+                    <span class="emoji">😀</span>
+                    <span class="emoji">😂</span>
+                    <span class="emoji">❤️</span>
+                    <span class="emoji">👍</span>
+                    <span class="emoji">👋</span>
+                    <span class="emoji">🎉</span>
+                    <span class="emoji">🔥</span>
+                    <span class="emoji">⭐</span>
+                </div>
+            </div>
+        </div>
 
         <label for="file">افزودن فایل</label>
         <input type="file" id="file" name="file" accept="image/*">
