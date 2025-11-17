@@ -5,44 +5,38 @@
 - علی
 
 ## توضیح پروژه
-یک صفحه‌ی فرانت‌اند استاتیک آزمایشی که فرم تماس را با ورودی ایموجی، بارگذاری تصویر و استایل راست‌به‌چپ تمیز ترکیب می‌کند. هدف اصلی، تمرین گردش‌کار گیت، ادغام شاخه‌های کوچک و پیاده‌سازی ساده‌ی دیپلوی در GitHub Pages است.
+یک صفحه‌ی استاتیک آزمایشی که فرم تماس را با ورودی ایموجی، جدول پیام‌ها، امکان بارگذاری تصویر و استایل راست‌به‌چپ ترکیب می‌کند. این ریپو بیشتر برای تمرین گردش‌کار Git، پیاده‌سازی فیچرهای کوچک، ادغام تدریجی روی `dev` و در نهایت استقرار روی GitHub Pages استفاده می‌شود.
 
 ## استراتژی شاخه‌ها
-- `main`: شاخه‌ی پایدار نهایی که فقط پس از مرور تغییرها (مثل PR #8 برای استقرار) به‌روزرسانی می‌شود.
-- `dev`: شاخه‌ی ادغام برای جمع کردن فیچرها (ایموجی، جدول پیام‌ها) پیش از انتشار روی `main`.
-- `feature/ui-layout`: توسعه‌ی تدریجی UI (لی‌اوت اولیه، تایپوگرافی، راست‌چین) که با PR #3 وارد شد.
-- `emoji-panel`: اضافه‌کردن پنل ایموجی؛ قبل از Merge روی `dev` با `main` هماهنگ شد (`b67b19f`).
-- `add-photo`: افزودن امکان آپلود تصویر که به‌وسیله‌ی PR #4 ادغام شد.
-- `7-adding-workflow-for-deploy`: زیرساخت CI/CD برای تعریف Workflow دیپلوی (PR #8).
-- شاخه‌های بایگانی نظیر `feature/task-logic` و `6-adding-table-of-messages` تاریخچه‌ی آزمایشی/آینه‌ی PRها را نگه می‌دارند.
+- `main`: شاخه‌ی پایدار و منبع استقرار؛ پس از هر ادغام موفق (PR #8 و #9) و همچنین کامیت‌های مستندسازی «answering * question» به‌روز می‌شود.
+- `dev`: شاخه‌ی ادغام که تغییرات فیچرها ابتدا در آن آزمون می‌شوند؛ هم‌اکنون روی آخرین وضعیت `main` ریبیس شده و آماده‌ی انتشار است.
+- `feature/ui-layout`: مجموعه کامیت‌های اولیه‌ی ظاهر صفحه (لی‌اوت، تایپوگرافی و پشتیبانی RTL) که با PR #3 به کد اصلی اضافه شد.
+- `emoji-panel`: شاخه‌ی مربوط به افزودن پنل ایموجی؛ قبل از Merge در PR #5 با `main` همگام شد تا تعارض‌های فرم حل شوند.
+- `add-photo`: فیچر آپلود تصویر که در PR #4 ادغام شد و کنار emoji panel قرار گرفت.
+- `6-adding-table-of-messages`: توسعه‌ی جدول پیام‌ها (کامیت 7b253ea) که با PR #9 به پروژه وارد شد.
+- `7-adding-workflow-for-deploy`: شاخه‌ی CI/CD که Workflow استقرار GitHub Pages را اضافه کرد (PR #8).
+- شاخه‌های آرشیوی مثل `feature/task-logic` یا mirrorهای `6-adding-table-of-messages` وضعیت تاریخی یا نسخه‌های درون PR را نگه می‌دارند.
 
 ## تاریخچه و گراف کامیت
 ```
-*   30cdad1 (main) Merge pull request #8 from saamTheSoldier/7-adding-workflow-for-deploy
+* 499d9a9 (HEAD -> main) answering seventh question readme
+* 506b2fc answering sixth question readme
+* 900f0f7 answering fifth question readme
+* 56aef16 answering forth question readme
+* feda087 answering third question readme
+* f76c5d4 answering second question readme
+* 3a76ff7 answering first question readme
+* 77353e5 updating readme
+*   b2eef31 Merge pull request #9 from saamTheSoldier/6-adding-table-of-messages
 |\  
-| * c84769b (7-adding-workflow-for-deploy) ci: add GitHub Actions workflow for Pages deployment
-|/  
-*   36e861e (dev) Merge pull request #5 from saamTheSoldier/emoji-panel
-|\  
-| *   b67b19f (emoji-panel) Merge branch 'main' into emoji-panel
-| |\  
-| |/  
-|/|   
-* |   eddf7f8 Merge pull request #4 from saamTheSoldier/add-photo
+| * 7b253ea (origin/6-adding-table-of-messages) feat: adds messages table
+* |   30cdad1 Merge pull request #8 from saamTheSoldier/7-adding-workflow-for-deploy
 |\ \  
-| * | fb0f1c4 feat: Adds upload image
-| | * 5b162ee feat: Adds emoji panel to message text area
-| |/  
-| * c650247 Merge pull request #3 from saamTheSoldier/feature/ui-layout
-|/| 
-| * 819e3ef chore(ui): fix rtl for persian texts
-| * 84b6238 feat(ui): add footer and about section
-| * 44285f0 style(ui): improve layout spacing and typography
-| * 48bc2b9 feat(ui): add basic page layout and task form structure
-|/  
-* c37309d chore: initial project setup with README, .gitignore, and basic HTML skeleton
+| * | c84769b (7-adding-workflow-for-deploy) ci: add GitHub Actions workflow for Pages deployment
+|/ /  
+* |   36e861e (origin/dev) Merge pull request #5 from saamTheSoldier/emoji-panel
 ```
-ابتدا اسکلت پروژه ساخته شد، سپس شاخه‌ی `feature/ui-layout` ظاهر صفحه را تکمیل کرد. در ادامه فیچرهای فرم (ایموجی و آپلود) روی شاخه‌های مجزا توسعه یافتند و در `dev` ادغام شدند. گام پایانی اضافه‌شدن Workflow و Merge آن به `main` بود.
+پس از ادغام فیچر جدول پیام، یک رشته کامیت مستندسازی در `main` به سؤالات نظری پاسخ داد. پیش از آن نیز فیچرهای UI، پنل ایموجی، آپلود تصویر و در نهایت Workflow استقرار به‌ترتیب وارد شده‌اند و سپس به شاخه‌ی اصلی منتقل شده‌اند.
 
 ## کامیت‌های مهم
 | هش | تاریخ | نویسنده | توضیح |
@@ -51,179 +45,51 @@
 | 48bc2b9 | 2025-11-17 | saam | افزودن لی‌اوت و فرم پایه |
 | 5b162ee | 2025-11-17 | alitaghipour | افزودن پنل ایموجی برای پیام |
 | fb0f1c4 | 2025-11-17 | alitaghipour | افزودن امکان بارگذاری تصویر |
-| eddf7f8 | 2025-11-17 | MohammadHossein HaajiHosseini AKA saam | ادغام PR #4 برای اضافه‌کردن آپلود عکس |
+| 7b253ea | 2025-11-17 | alitaghipour | افزودن جدول پیام‌ها و نمایش سوابق |
+| b2eef31 | 2025-11-17 | MohammadHossein HaajiHosseini AKA saam | ادغام PR #9 برای جدول پیام |
 | c84769b | 2025-11-17 | saam | تعریف Workflow دیپلوی GitHub Pages |
 | 30cdad1 | 2025-11-17 | MohammadHossein HaajiHosseini AKA saam | ادغام PR #8 جهت فعال‌سازی Pipeline استقرار |
+| 499d9a9 | 2025-11-17 | saam | تکمیل پاسخ هفتم سؤالات نظری در README |
 
 ## ادغام و رفع تعارض‌ها
-- PR #3 (`feature/ui-layout`) فقط HTML/CSS را لمس کرد و بدون تعارض جدی وارد شاخه‌ی مقصد شد.
-- PR #4 (`add-photo`) فیچر آپلود را وارد کرد و هم‌زمان با تغییرات ایموجی توسعه داده شد؛ Merge `eddf7f8` هر دو فیچر را کنار هم نگه داشت.
-- PR #5 شاخه‌ی `emoji-panel` را وارد `dev` کرد. برای جلوگیری از تعارض فرم، پیش از Merge یک همگام‌سازی با `main` انجام شد (`b67b19f`) تا تغییرات فرم و اسکریپت‌ها با هم ترکیب شوند.
-- PR #8 شاخه‌ی CI/CD را به `main` آورد؛ فقط فایل Workflow را تغییر می‌داد و بدون تعارض بود اما نیازمند تنظیم دسترسی برای Pages شد.
+- PR #3 (`feature/ui-layout`) عمدتاً HTML/CSS بود و بدون تعارض وارد شاخه‌ی مقصد شد.
+- PR #4 (`add-photo`) و PR #5 (`emoji-panel`) روی یک فرم مشترک کار می‌کردند؛ پیش از Merge، شاخه‌ی `emoji-panel` با `main` همگام شد (`b67b19f`) تا کد پنل ایموجی و آپلود تصویر کنار هم قرار بگیرند.
+- PR #9 (`6-adding-table-of-messages`) جدول پیام‌ها را به HTML و استایل اضافه کرد؛ این تغییرات بعد از تست روی `dev` با `main` ادغام شدند و جای کافی در کانتینر اصلی برای جدول در نظر گرفته شد.
+- پس از این ادغام‌ها، چندین کامیت مستندسازی (answering first–seventh question) بدون تعارض روی README اعمال شدند تا بخش نظری تکمیل شود.
 
 ## CI/CD با GitHub Actions و GitHub Pages
-- فایل Workflow: `.github/workflows/deploy.yml` با عنوان «Deploy static site to GitHub Pages».
-- تریگر: `push` روی شاخه‌ی `main` همراه با دسترسی لازم برای Pages.
-- مراحل: Checkout ریپو، پیکربندی محیط Pages، آپلود تمام سایت به‌عنوان artifact و در نهایت دیپلوی با `actions/deploy-pages@v4`.
-- آدرس انتشار (به‌روزرسانی پس از استقرار واقعی): https://saamthesoldier.github.io/se-lab-01-static-front
+- Workflow در مسیر `.github/workflows/deploy.yml` با عنوان «Deploy static site to GitHub Pages» قرار دارد.
+- با هر `push` روی `main` اجرا می‌شود و دسترسی‌های `contents: read`, `pages: write`, `id-token: write` را تنظیم می‌کند.
+- مراحل: checkout ریپو، پیکربندی محیط Pages (`actions/configure-pages@v5`)، آپلود artifact کل سایت (`actions/upload-pages-artifact@v3`) و در نهایت دیپلوی با `actions/deploy-pages@v4`.
+- نشانی انتشار را پس از فعال‌شدن Pages به شکل `https://<username>.github.io/<repo-name>/` تکمیل کنید.
 
-## سوالات نظری گیت (جای خالی)
-### ساختار داخلی پوشه‌ی `.git`
-## ۱. پوشه‌ی `.git` چیست؟ چه اطلاعاتی در آن ذخیره می‌شود؟ با چه دستوری ساخته می‌شود؟
+## سوالات نظری گیت
+### ۱. پوشه‌ی `.git` چیست و چه اطلاعاتی در آن نگه‌داری می‌شود؟
+پوشه‌ی `.git` قلب هر مخزن است و شامل همه‌ی object‌ها (blob، tree، commit، tag)، اشاره‌گرها در `refs/`, فایل `HEAD`, شاخص stage (`index`)، تنظیمات (`config`) و hookها است. این ساختار با `git init` ساخته می‌شود و هنگام `git clone` نیز خودکار ایجاد می‌گردد.
 
-پوشه‌ی `.git` هسته‌ی اصلی هر مخزن Git است و تمام داده‌ها و متادیتای مربوط به تاریخچه‌ی پروژه را در خود نگه می‌دهد. این پوشه شامل موارد زیر است:
+### ۲. اتمیک بودن در کامیت و Pull Request چه معنایی دارد؟
+- **کامیت اتمیک** تنها یک تغییر منطقی را دربر می‌گیرد؛ همین موضوع تاریخچه را خوانا و فرآیند revert یا تست را ساده می‌کند.
+- **Pull Request اتمیک** هم فقط یک موضوع (فیچر یا باگ‌فیکس) را پوشش می‌دهد تا بازبینی و ادغام کنترل‌شده باشد.
 
-- **objects/**: شامل blob‌ ها (محتوای فایل‌ها)، tree‌ ها (ساختار پوشه‌ها)، commit‌ ها و tagها  
-- **refs/**: نگه‌دارنده‌ی اشاره‌گرهای برنچ‌ها و تگ‌ها  
-- **HEAD**: نشان می‌دهد الان روی کدام برنچ هستیم  
-- **index (stage)**: وضعیت فایل‌هایی که آماده commit شدن هستند  
-- **config**: تنظیمات مخزن (remote، ایمیل، نام کاربر و ...)  
-- **hooks/**: اسکریپت‌های قبل و بعد از عملیات Git  
+### ۳. تفاوت fetch، pull، merge، rebase و cherry-pick چیست؟
+- `git fetch`: فقط تغییرات remote را دریافت می‌کند و برنچ فعلی را دست‌نخورده می‌گذارد.
+- `git pull`: برابر با fetch + merge (یا rebase، اگر تنظیم شده باشد) و تغییرات را بلافاصله روی برنچ فعال اعمال می‌کند.
+- `git merge`: دو شاخه را ترکیب می‌کند و یک merge commit می‌سازد بدون بازنویسی تاریخچه.
+- `git rebase`: کامیت‌های شاخه‌ی فعلی را روی پایه‌ی جدید بازپخش می‌کند و تاریخچه را خطی نگه می‌دارد؛ روی برنچ مشترک باید با احتیاط استفاده شود.
+- `git cherry-pick`: یک یا چند commit را از هر نقطه‌ی تاریخچه برداشته و روی برنچ فعلی اعمال می‌کند تا فقط همان تغییر وارد شود.
 
-این پوشه با دستور زیر ساخته می‌شود:
+### ۴. تفاوت reset، revert، restore، switch و checkout چیست؟
+- `git reset`: HEAD (و در حالت hard/soft/mixed استیج و فایل‌ها) را به commit قبلی برمی‌گرداند؛ `--hard` تمام تغییرات را حذف می‌کند.
+- `git revert`: بدون پاک‌کردن تاریخچه، یک commit جدید می‌سازد که اثر commit قبلی را خنثی می‌کند؛ مناسب برنچ‌های اشتراکی.
+- `git restore`: نگارش مدرن برای برگرداندن فایل‌ها از commit یا stage به working directory است.
+- `git switch`: دستور جدید برای جابه‌جایی بین شاخه‌ها بدون دست‌کاری فایل‌ها.
+- `git checkout`: دستور قدیمی چندمنظوره که هم برای تغییر شاخه و هم بازیابی فایل استفاده می‌شد؛ امروزه `switch` و `restore` جایگزین تمیزتری هستند.
 
-```bash
-git init
-````
+### ۵. Stage یا Index چیست و `git stash` چه می‌کند؟
+Stage (یا index) لایه‌ی میانی بین working directory و commit است؛ هرچه با `git add` علامت‌گذاری شود مستقیماً وارد commit بعدی خواهد شد. `git stash` تغییرات stage و working directory را موقتاً ذخیره کرده و محیط را پاک می‌کند تا بتوان روی برنچ دیگری کار کرد؛ بعداً با `stash pop/apply` می‌توان آن تغییرات را برگرداند.
 
-یا هنگام clone به‌صورت خودکار ایجاد می‌شود.
+### ۶. Snapshot در Git یعنی چه و چه نسبتی با commit دارد؟
+هر commit در Git یک snapshot تقریباً کامل از پروژه است؛ فقط فایل‌های تغییر کرده دوباره ذخیره می‌شوند و بقیه به نسخه‌های قبلی اشاره دارند. Diff صرفاً مقایسه‌ی دو snapshot است و با checkout هر commit، پروژه دقیقاً به همان وضعیت باز می‌گردد.
 
----
-
-## ۲. منظور از atomic بودن در atomic commit و atomic pull-request چیست؟
-
-* Atomic Commit: کامیتی که فقط شامل یک «تغییر منطقی واحد» است (مثلاً فقط یک باگ‌فیکس یا یک فیچر کوچک).
-
-  * خوانایی تاریخچه، امکان revert راحت و تست‌پذیری را افزایش می‌دهد.
-
-* Atomic Pull Request: یک PR که فقط یک موضوع واحد را پوشش می‌دهد (یک فیچر، یک refactor، یا یک باگ‌فیکس مشخص).
-
-  * باعث ساده شدن code review و جلوگیری از تغییرات ناخواسته می‌شود.
-
----
-
-## ۳. تفاوت دستورهای fetch و pull و merge و rebase و cherry-pick
-
-### git fetch
-
-فقط تغییرات جدید remote را دریافت می‌کند، اما برنچ فعلی را تغییر نمی‌دهد.
-
-### git pull
-
-درواقع fetch + merge (یا rebase در صورت تنظیم).
-تغییرات remote را دانلود و سپس فوراً روی برنچ فعلی اعمال می‌کند.
-
-### git merge
-
-دو برنچ را باهم ادغام کرده و یک merge commit ایجاد می‌کند.
-تاریخچه را بازنویسی نمی‌کند.
-
-### git rebase
-
-کامیت‌های یک برنچ را روی پایه‌ی جدید (base جدید) دوباره اعمال می‌کند و تاریخچه را خطی می‌کند.
-history را بازنویسی می‌کند، پس روی برنچ‌های مشترک باید با احتیاط استفاده شود.
-
-### git cherry-pick
-
-یک یا چند commit خاص را از هر جای تاریخچه برداشته و روی برنچ فعلی اعمال می‌کند.
-(تاریخچه را به‌هم نمی‌دوزد؛ فقط محتوای آن commit را منتقل می‌کند.)
-
----
-
-## ۴. تفاوت دستورهای reset و revert و restore و switch و checkout
-
-### git reset
-
-HEAD و گاهی staging و working directory را به یک commit قبلی بازمی‌گرداند.
-سه حالت اصلی:
-
-* --soft: فقط HEAD تغییر می‌کند
-* --mixed (پیش‌فرض): HEAD + پاک شدن stage
-* --hard: HEAD + stage + فایل‌ها → حذف کامل تغییرات
-
-### git revert
-
-یک commit جدید می‌سازد که تغییرات commit قبلی را خنثی می‌کند.
-تاریخچه را پاک نمی‌کند → مناسب برای برنچ‌های مشترک.
-
-### git restore
-
-برای بازیابی فایل‌ها از commitهای قبلی یا از stage به working directory.
-جایگزین مدرن بخش فایل‌محور checkout.
-
-### git switch
-
-برای تغییر برنچ استفاده می‌شود.
-جایگزین مدرن بخش برنچ‌محور checkout.
-
-### git checkout
-
-دستور قدیمی چندمنظوره برای:
-
-* تغییر برنچ
-* بازیابی فایل‌ها از commit
-  امروز بهتر است از switch و restore استفاده شود.
-
----
-
-
-## ۵. منظور از stage یا index چیست؟ دستور stash چه کاری انجام می‌دهد؟
-
-### Stage / Index
-
-منطقه‌ی میانی بین working directory و commit.
-با git add تغییرات وارد stage می‌شوند و commit دقیقاً از روی stage ساخته می‌شود.
-مزیت: امکان commit کردن بخشی از تغییرات و نگه داشتن بقیه.
-
-### git stash
-
-تغییرات جاری (در working directory و stage) را موقتاً ذخیره کرده و محیط را تمیز می‌کند.
-کاربرد:
-
-* وقتی وسط یک کار هستیم اما لازم است سریع به برنچ دیگری برویم.
-* بعداً با git stash pop یا apply می‌توان تغییرات را برگرداند.
-
----
-
-## ۶. مفهوم snapshot به چه معناست؟ ارتباط آن با commit چیست؟
-
-در Git هر commit یک snapshot کامل از وضعیت فایل‌های پروژه است، نه فقط diff.
-Git برای صرفه‌جویی در حافظه فقط فایل‌های تغییر کرده را ذخیره می‌کند؛ بقیه به blobهای قبلی اشاره می‌کنند.
-
-بنابراین:
-
-* commit = snapshot از کل پروژه
-* diff فقط مقایسه‌ی دو snapshot است
-* checkout کردن یک commit، کل پروژه را دقیقاً به همان حالت بازمی‌گرداند
-
-این معماری سرعت، انعطاف و branching ارزان را ممکن کرده است.
-
----
-
-## ۷. تفاوت‌های local repository و remote repository چیست؟
-
-### Local Repository
-
-* روی سیستم شماست
-* بدون اینترنت قابل استفاده است
-* شامل .git و فایل‌های پروژه است
-* تا push نکنید دیگران تغییرات شما را نمی‌بینند
-
-### Remote Repository
-* روی سرور (مثلاً GitHub / GitLab / Bitbucket)
-* محل اشتراک، همکاری و CI/CD
-* دریافت تغییرات: fetch و pull
-* ارسال تغییرات: push
-* می‌توان روی آن محدودیت‌هایی مثل branch protection اعمال کرد
-
-### خلاصه
-
-| ویژگی             | Local Repo   | Remote Repo      |
-| ----------------- | ------------ | ---------------- |
-| محل               | کامپیوتر شما | سرور             |
-| نیاز به اینترنت   | ندارد        | دارد             |
-| دیده‌شدن توسط تیم | خیر          | بله              |
-| سیاست‌های کنترلی  | ندارد        | دارد             |
-| کاربرد            | توسعه‌ی محلی | همکاری و استقرار |
-
----
+### ۷. تفاوت ریپوی محلی و ریپوی ریموت چیست؟
+ریپوی محلی روی دستگاه توسعه‌دهنده است و حتی بدون اینترنت قابل استفاده است؛ تا زمانی که `git push` انجام نشود کسی آن تغییرات را نمی‌بیند. ریپوی ریموت (GitHub/GitLab/...) محل اشتراک گذاشتن، همکاری، CI/CD و اعمال محدودیت‌هایی مثل branch protection است. `fetch/pull` برای دریافت و `push` برای ارسال تغییرات میان این دو استفاده می‌شود.
