@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+
     const emojiToggle = document.querySelector('.emoji-toggle');
     const emojiPicker = document.querySelector('.emoji-picker');
     const messageTextarea = document.getElementById('message');
@@ -30,6 +31,32 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('click', function(event) {
         if (!event.target.closest('.emoji-picker-container')) {
             emojiPicker.classList.remove('show');
+        }});
+
+    const form = document.querySelector('.contact-form');
+    const fileInput = document.getElementById('file');
+    const imagePreview = document.getElementById('imagePreview');
+
+    fileInput.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                imagePreview.innerHTML = `<img src="${e.target.result}" alt="Preview">`;
+            };
+
+            reader.readAsDataURL(file);
+        } else {
+            imagePreview.innerHTML = '';
         }
     });
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        form.reset();
+        imagePreview.innerHTML = '';
+        alert('پیام شما با موفقیت ارسال شد!');
+    });
+    
 });
