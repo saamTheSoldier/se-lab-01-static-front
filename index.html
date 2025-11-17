@@ -1,37 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>SE Lab Static Frontend</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <title>SE Lab Static Frontend</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container">
+<div class="container">
     <h1>SE Lab Frontend - Team سام و علی</h1>
     <p>پروژه‌ی آز مهندسی نرم‌افزار - فرانت‌اند استاتیک</p>
 
     <form class="contact-form">
-      <label for="name">نام</label>
-      <input type="text" id="name" name="name" placeholder="نام شما">
+        <label for="name">نام</label>
+        <input type="text" id="name" name="name" placeholder="نام شما">
 
-      <label for="email">ایمیل</label>
-      <input type="email" id="email" name="email" placeholder="sample@example.com">
+        <label for="email">ایمیل</label>
+        <input type="email" id="email" name="email" placeholder="sample@example.com">
 
-      <label for="message">پیام</label>
-      <textarea id="message" name="message" rows="4" placeholder="پیامتان را بنویسید"></textarea>
+        <label for="message">پیام</label>
+        <div class="message-container">
+            <textarea id="message" name="message" rows="4" placeholder="پیامتان را بنویسید"></textarea>
+            <div class="emoji-picker-container">
+                <button type="button" class="emoji-toggle">😊</button>
+                <div class="emoji-picker">
+                    <span class="emoji">😀</span>
+                    <span class="emoji">😂</span>
+                    <span class="emoji">❤️</span>
+                    <span class="emoji">👍</span>
+                    <span class="emoji">👋</span>
+                    <span class="emoji">🎉</span>
+                    <span class="emoji">🔥</span>
+                    <span class="emoji">⭐</span>
+                </div>
+            </div>
+        </div>
 
-      <button type="submit">ارسال پیام</button>
+        <button type="submit">ارسال پیام</button>
     </form>
 
     <section class="about">
-      <h2>درباره پروژه</h2>
-      <p>یک تمرین کوچک برای آشنایی با فرانت‌اند استاتیک و هماهنگی تیمی.</p>
+        <h2>درباره پروژه</h2>
+        <p>یک تمرین کوچک برای آشنایی با فرانت‌اند استاتیک و هماهنگی تیمی.</p>
     </section>
 
     <footer class="site-footer">
-      <small>ساخته شده در آز مهندسی نرم‌افزار &mdash; ۱۴۰۳</small>
+        <small>ساخته شده در آز مهندسی نرم‌افزار &mdash; ۱۴۰۳</small>
     </footer>
-  </div>
-  <script src="app.js"></script>
+</div>
+<script src="app.js"></script>
 </body>
 </html>
